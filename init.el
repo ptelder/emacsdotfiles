@@ -17,6 +17,12 @@
              '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 
+;;; Ensure use-package is present / Install if it's not already installed.
+;; use-package is used to configure the rest of the packages.
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
 (require 'smex) ; Not needed if you use package.el
 (smex-initialize) ; Can be omitted. This might cause a (minimal) delay
                   ; when Smex is auto-initialized on its first run.
