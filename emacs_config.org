@@ -1,3 +1,64 @@
+#+TITLE: Emacs Configuration
+#+AUTHOR: Kenneth W Brown III
+
+This concept is blatantly ripped off from Daniel Mai. This file assumes Emacs 24 or above.
+
+* Personal Information
+
+I have no idea where this gets used, but the Emacs docs say they're legit... Perhaps they can be fed to default skeletons?
+
+#+begin_src emacs-lisp
+(setq user-full-name "Kenneth W Brown III"
+      user-mail-address "pliny@ptelder.net")
+#+end_src
+
+* Customize settings
+
+Set up the customize file to its own separate file, instead of saving
+customize settings in [[file:init.el][init.el]].
+
+#+begin_src emacs-lisp
+(setq custom-file (expand-file-name "customize-persistence.el" user-emacs-directory))
+(load custom-file)
+#+end_src
+
+* Themes
+** Daniel Mai's theme switch functions
+
+#+begin_src emacs-lisp
+(defun switch-theme (theme)
+  "Disables any currently active themes and loads THEME."
+  ;; This interactive call is taken from `load-theme'
+  (interactive
+   (list
+    (intern (completing-read "Load custom theme: "
+                             (mapc 'symbol-name
+                                   (custom-available-themes))))))
+  (let ((enabled-themes custom-enabled-themes))
+    (mapc #'disable-theme custom-enabled-themes)
+    (load-theme theme t)))
+
+(defun disable-active-themes ()
+  "Disables any currently active themes listed in `custom-enabled-themes'."
+  (interactive)
+  (mapc #'disable-theme custom-enabled-themes))
+
+(bind-key "s-<f12>" 'switch-theme)
+(bind-key "s-<f11>" 'disable-active-themes)
+#+end_src
+
+
+** Personal Theme Setup
+*** Birds of Paradise
+
+#+begin_src emacs-lisp
+(use-package birds-of-paradise-plus-theme
+  :ensure t
+  :init
+  (progn
+    (load-theme 'birds-of-paradise-plus t)))
+#+end_src
+
 * Initial import of settings from init.el
 #+begin_src emacs-lisp
 (require 'smex) ; Not needed if you use package.el
@@ -9,6 +70,5 @@
 ;; This is your old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
-(setq custom-file (expand-file-name "customize-persistence.el" user-emacs-directory))
-(load custom-file)
 #+end_src
+
