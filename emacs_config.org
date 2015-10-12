@@ -59,7 +59,9 @@ customize settings in [[file:init.el][init.el]].
     (load-theme 'birds-of-paradise-plus t)))
 #+end_src
 
-* Initial import of settings from init.el
+* Temporary Smex Settings
+I need to decide if I'm using Ido or Helm before doing anything else with this bit
+
 #+begin_src emacs-lisp
 (require 'smex) ; Not needed if you use package.el
 (smex-initialize) ; Can be omitted. This might cause a (minimal) delay
