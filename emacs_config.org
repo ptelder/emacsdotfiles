@@ -17,9 +17,22 @@ I have no idea where this gets used, but the Emacs docs say they're legit... Per
 Set up the customize file to its own separate file, instead of saving
 customize settings in [[file:init.el][init.el]].
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lsp
 (setq custom-file (expand-file-name "customize-persistence.el" user-emacs-directory))
 (load custom-file)
+#+end_src
+
+* Keybinds via bind-key
+Use bind-key for... binding keys
+
+#+begin_src emacs-lsp
+(require 'bind-key)
+#+end_src
+
+* Diminish
+Diminished modes are active, but not showy about it.
+#+begin_src emacs-lsp
+(require 'diminish)
 #+end_src
 
 * Themes
@@ -59,9 +72,26 @@ customize settings in [[file:init.el][init.el]].
     (load-theme 'birds-of-paradise-plus t)))
 #+end_src
 
-* Temporary Smex Settings
-I need to decide if I'm using Ido or Helm before doing anything else with this bit
+* Ido and Smex
+Helm looks super useful, but I've got enough on my plate just trying to get Emacs itself to stick in my mind.
 
+#+begin_src emacs-lisp
+(use-package ido
+  :init
+  (progn
+    (setq ido-enable-flex-matching t)
+    (setq ido-everywhere t)
+    (ido-mode t)
+    (use-package ido-ubiquitous
+      :ensure t
+      :init (ido-ubiquitous-mode))
+    (use-package ido-vertical-mode
+      :ensure t
+      :init (ido-vertical-mode 1)
+      (setq ido-vertical-define-keys 'C-n-and-C-p-only))))
+#+end_src
+
+Need to convert these to bind-key
 #+begin_src emacs-lisp
 (require 'smex) ; Not needed if you use package.el
 (smex-initialize) ; Can be omitted. This might cause a (minimal) delay
@@ -72,12 +102,15 @@ I need to decide if I'm using Ido or Helm before doing anything else with this b
 ;; This is your old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
+(use-package smex
+  :ensure t
+  :bind ("M-x" . smex))
 #+end_src
+
 
 * Installed Packages
 
   bind-key           20150321.213  installed             A simple way to manage personal keybindings
-  birds-of-paradi... 20130419.1429 installed             A brown/orange light-on-dark theme for Emacs 24 (deftheme).
   diminish           20091203.1012 installed             Diminished modes are minor modes with no modeline display
   nyan-mode          20150128.1218 installed             Nyan Cat shows position in current buffer in mode-line.
   nyan-prompt        20140809.2208 installed             Nyan Cat on the eshell prompt.
