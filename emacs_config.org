@@ -83,7 +83,9 @@ Helm looks super useful, but I've got enough on my plate just trying to get Emac
     (use-package ido-vertical-mode
       :ensure t
       :init (ido-vertical-mode 1)
-      (setq ido-vertical-define-keys 'C-n-and-C-p-only))))
+      (setq ido-vertical-define-keys 'C-n-and-C-p-only))
+    (use-package ido-completing-read+
+      :ensure t)))
 
 #+end_src
 
@@ -110,8 +112,6 @@ Need to convert these to bind-key
   rainbow-mode       0.11          installed             Colorize color names in buffers
   rich-minority      20150930.517  installed             Clean-up and Beautify the list of minor-modes.
   smart-mode-line    20150803.338  installed             A color coded smart mode-line.
-  smex               20150822.1146 installed             M-x interface with Ido-style fuzzy matching.
-  use-package        20150926.846  installed             A use-package declaration for simplifying your .emacs
   ido-completing read something-or other
 
 * Customize Settings to import
