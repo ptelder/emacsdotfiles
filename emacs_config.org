@@ -12,25 +12,34 @@ I have no idea where this gets used, but the Emacs docs say they're legit... Per
       user-mail-address "pliny@ptelder.net")
 #+end_src
 
+* Customize settings
+
+Set up the customize system to use its own separate file, instead of saving
+customize settings in [[file:init.el][init.el]].
+
+#+begin_src emacs-lisp
+(setq custom-file (expand-file-name "customize-persistence.el" user-emacs-directory))
+(load custom-file)
+#+end_src
+
 * Keybinds via bind-key
 Use bind-key for... binding keys
++[[https://github.com/emacsattic/bind-key]]
 
 #+begin_src emacs-lsp
 (use-package bind-key
   :ensure t)
-
-
 #+end_src
 
 * Diminish
-Diminished modes are active, but not showy about it.
+Diminished modes are active, but not showy about it. 
++[[http://www.emacswiki.org/emacs/DiminishedModes]]
+
 #+begin_src emacs-lsp
 (require 'diminish)
 #+end_src
 
 * Themes
-
-
 ** Personal Theme Setup
 *** Birds of Paradise
 
@@ -69,6 +78,9 @@ Diminished modes are active, but not showy about it.
 * Ido and Smex
 Helm looks super useful, but I've got enough on my plate just trying to get Emacs itself to stick in my mind.
 
+** Ido
+Interactively Do Things
++ [[http://emacswiki.org/emacs/InteractivelyDoThings]]
 #+begin_src emacs-lisp
 (use-package ido
   :ensure t
@@ -89,7 +101,9 @@ Helm looks super useful, but I've got enough on my plate just trying to get Emac
 
 #+end_src
 
-Need to convert these to bind-key
+** Smex
+Replacement for execute-extended-command (Meta-X), integrated with Ido.
++ [[http://www.emacswiki.org/emacs/Smex]]
 #+begin_src emacs-lisp
 (use-package smex
   :ensure t
@@ -98,34 +112,21 @@ Need to convert these to bind-key
     (smex-initialize))
     :bind (("M-x" . smex)
       ("M-X" . smex-major-mode-commands)
-      ;; This is your old M-x
+      ;; This is the old M-x
       ("C-c M-x" . execute-extended-command)))
 
 #+end_src
 
-
-* Installed Packages
-
-  rainbow-blocks     20140306.1033 installed             Block syntax highlighting for lisp code
-  rainbow-delimiters 20150320.17   installed             Highlight brackets according to their depth
-  rainbow-identif... 20141102.726  installed             Highlight identifiers according to their names
-  rainbow-mode       0.11          installed             Colorize color names in buffers
-  rich-minority      20150930.517  installed             Clean-up and Beautify the list of minor-modes.
-  smart-mode-line    20150803.338  installed             A color coded smart mode-line.
-  ido-completing read something-or other
-
-* Customize Settings to import
-
- '(server-mode t)
- '(uniquify-buffer-name-style (quote post-forward) nil (uniquify)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 136 :width normal :foundry "adobe" :family "Source Code Pro")))))
-
 * Nyan!
+
+It's fucking Nyan Cat, how much more explanation do you need?
++ [[http://www.emacswiki.org/emacs/NyanMode]]
++ [[https://github.com/PuercoPop/nyan-prompt]]
+
+Well, maybe one more piece of explanation. Nyan Prompt adds a Nyan to the eshell prompt. Eshell is one of the three built in Emacs shells:
+1. Shell is the old-school shell. It runs the default shell in the background.
+2. Term is an actual terminal emulator, runs whatever you want inside Emacs.
+3. Eshell is an actual EmacsLisp shell.
 
 #+begin_src emacs-lisp
 (use-package nyan-mode
@@ -143,12 +144,24 @@ Need to convert these to bind-key
     (add-hook 'eshell-load-hook 'nyan-prompt-enable)))
 #+end_src
 
-* Customize settings
 
-Set up the customize file to its own separate file, instead of saving
-customize settings in [[file:init.el][init.el]].
+* Installed Packages
 
-#+begin_src emacs-lsp
-(setq custom-file (expand-file-name "customize-persistence.el" user-emacs-directory))
-(load custom-file)
-#+end_src
+  rainbow-blocks     20140306.1033 installed             Block syntax highlighting for lisp code
+  rainbow-delimiters 20150320.17   installed             Highlight brackets according to their depth
+  rainbow-identif... 20141102.726  installed             Highlight identifiers according to their names
+  rainbow-mode       0.11          installed             Colorize color names in buffers
+  rich-minority      20150930.517  installed             Clean-up and Beautify the list of minor-modes.
+  smart-mode-line    20150803.338  installed             A color coded smart mode-line.
+
+
+* Customize Settings to import
+
+ '(server-mode t)
+ '(uniquify-buffer-name-style (quote post-forward) nil (uniquify)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 136 :width normal :foundry "adobe" :family "Source Code Pro")))))
