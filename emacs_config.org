@@ -144,6 +144,15 @@ Well, maybe one more piece of explanation. Nyan Prompt adds a Nyan to the eshell
     (add-hook 'eshell-load-hook 'nyan-prompt-enable)))
 #+end_src
 
+* Magit
+We need some git integration up in here. Switching out of Emacs to commit on the command line is getting annoying.
++ [[http://www.emacswiki.org/emacs/Magit]]
+
+#+begin_src emacs-lisp
+(use-package magit
+  :ensure t)
+#+end_src
+
 
 * Installed Packages
 
