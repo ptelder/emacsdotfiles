@@ -19,6 +19,8 @@
 
 ;;; Ensure use-package is present / Install if it's not already installed.
 ;; use-package is used to configure the rest of the packages.
+
+;; also need a check for diminsh! use-package relies on it!!!
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
