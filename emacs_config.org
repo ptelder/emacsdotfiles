@@ -41,8 +41,8 @@ Hide/Highlight/Rename minor modes
 (use-package rich-minority
   :ensure t)
 #+END_SRC
-** Smart Mode Line
-Color coded themable mode line.
+** TODO Smart Mode Line
+Color coded themable mode line. *Needs code to detect if theme is set for SML, if not, run sml/setup*
 + [[https://github.com/Malabarba/smart-mode-line]]
 
 #+BEGIN_SRC emacs-lisp
@@ -50,19 +50,18 @@ Color coded themable mode line.
   :ensure t
   :init
   (progn
-    (sml/setup)))
+    (smart-mode-line-enable)))
 #+END_SRC
 
 * Themes
 ** Personal Theme Setup
+The original plan here was to check for and install any missing themes I want and to configure my default. This seems to make Customize tetchy about being overriden.
+For the sake of convenience as I'm still leraning Emacs, I'm just going to throw the customize file into git. I'm sure this will *never* /ever/ come back to bite me in the ass.
 *** Birds of Paradise
 
 #+begin_src emacs-lisp
 (use-package birds-of-paradise-plus-theme
-  :ensure t
-  :init
-  (progn
-    (load-theme 'birds-of-paradise-plus t)))
+  :ensure t)
 #+end_src
 
 ** Daniel Mai's theme switch functions
