@@ -26,18 +26,32 @@ customize settings in [[file:init.el][init.el]].
 Use bind-key for... binding keys
 +[[https://github.com/emacsattic/bind-key]]
 
-#+begin_src emacs-lsp
+#+begin_src emacs-lisp
 (use-package bind-key
   :ensure t)
 #+end_src
 
-* Diminish
-Diminished modes are active, but not showy about it. 
-+[[http://www.emacswiki.org/emacs/DiminishedModes]]
+* Mode Line Mods
 
-#+begin_src emacs-lsp
-(require 'diminish)
-#+end_src
+** Rich Minority
+Hide/Highlight/Rename minor modes
++ [[https://github.com/Malabarba/rich-minority]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package rich-minority
+  :ensure t)
+#+END_SRC
+** Smart Mode Line
+Color coded themable mode line.
++ [[https://github.com/Malabarba/smart-mode-line]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package smart-mode-line
+  :ensure t
+  :init
+  (progn
+    (sml/setup)))
+#+END_SRC
 
 * Themes
 ** Personal Theme Setup
@@ -171,11 +185,6 @@ Colorize names of colors in *some* modes
 (use-package rainbow-mode
   :ensure t)
 #+END_SRC
-
-* Installed Packages
-
-  rich-minority      20150930.517  installed             Clean-up and Beautify the list of minor-modes.
-  smart-mode-line    20150803.338  installed             A color coded smart mode-line.
 
 
 * Customize Settings to import
