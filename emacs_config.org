@@ -153,13 +153,27 @@ We need some git integration up in here. Switching out of Emacs to commit on the
   :ensure t)
 #+end_src
 
+* Colorization
+** Rainbow Blocks/Delimiters
+Blocks is an evolution of delimters that colorizes things in parens by depth.
++ [[https://github.com/istib/rainbow-blocks]]
+
+#+begin_src emacs-lisp
+(use-package rainbow-blocks
+  :ensure t)
+#+end_src
+
+** Rainbow Mode
+Colorize names of colors in *some* modes 
++ [[https://julien.danjou.info/projects/emacs-packages]]
+
+#+BEGIN_SRC emacs-lisp
+(use-package rainbow-mode
+  :ensure t)
+#+END_SRC
 
 * Installed Packages
 
-  rainbow-blocks     20140306.1033 installed             Block syntax highlighting for lisp code
-  rainbow-delimiters 20150320.17   installed             Highlight brackets according to their depth
-  rainbow-identif... 20141102.726  installed             Highlight identifiers according to their names
-  rainbow-mode       0.11          installed             Colorize color names in buffers
   rich-minority      20150930.517  installed             Clean-up and Beautify the list of minor-modes.
   smart-mode-line    20150803.338  installed             A color coded smart mode-line.
 
