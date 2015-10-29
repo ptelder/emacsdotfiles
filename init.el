@@ -9,8 +9,13 @@
 
 ;; Adjust default buffers
 (setq inhibit-startup-message t)
-(setq initial-scratch-message "Always mount a scratch buffer?")
-
+(when (executable-find "fortune")
+  (setq initial-scratch-message
+	(concat
+	 (mapconcat
+	  (lambda (x) (concat ";; " x))
+	  (split-string (shell-command-to-string "fortune") "\n" t) "\n")
+	 "\n\n")))
 ;; Get package up and ready to go
 (require 'package)
 (add-to-list 'package-archives
