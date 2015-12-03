@@ -275,3 +275,19 @@ Aspell needs a command line adjustment for flyspell
 (setq ispell-list-command "--list")
 (add-hook 'org-mode-hook 'turn-on-flyspell)
 #+END_SRC
+* Coding
+Company Mode
+[[https://company-mode.github.io/]]
+
+#+begin_src emacs-lisp
+(use-package company
+  :ensure t)
+#+end_src
+
+Elixir!
+[[http://www.alchemist-elixir.org/]]
+
+#+begin_src emacs-lisp
+(use-package alchemist
+  :ensure t)
+#+end_src
