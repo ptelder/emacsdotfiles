@@ -291,3 +291,12 @@ Elixir!
 (use-package alchemist
   :ensure t)
 #+end_src
+
+Python
+[[https://github.com/jorgenschaefer/elpy]]
+
+#+begin_src emacs-lisp
+(use-package elpy
+  :ensure t
+  :init (elpy-enable))
+#+end_src
