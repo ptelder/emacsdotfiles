@@ -1,0 +1,16 @@
+.Emacs Repository 
+# org-files
+
+* First stab at a synced org-mode setup
+
+I first touched Emacs sometime in the mid-90's and bounded right off the weirdness of it's interface.
+
+More recently I got into the idea of doing [[http://nanowrimo.org/][NaNoWriMo]], and found myself in need of an industrial strength text-processing solution. I'd tried Emacs again to get in on some of that org-mode goodness, but hadn't stuck with it.
+
+Part of the problem was that I'd find time to get Emacs setup, and then forget how I'd done it, reinstall my system, and be back at square one.
+
+Then I found [[https://www.youtube.com/watch?v=VIuOwIBL-ZU][Daniel Mai's video]], and I started putting this together to get Emacs setup on all my systems consistently, one and for all (at least until 25 comes out...)
+
+Feel free to copy, but be warned...
+
+[[http://i0.kym-cdn.com/photos/images/facebook/000/234/739/fa5.jpg]]
