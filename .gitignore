@@ -20,3 +20,4 @@ ido.last
 smex-items
 /customize-persistence.el
 url
+server/server
