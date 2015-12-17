@@ -120,6 +120,12 @@ That didn't take long. Looks like Smart Mode Line is not Going to play nice with
 (bind-key "s-<f11>" 'disable-active-themes)
 #+end_src
 
+** Highlight Current Lines
+
+#+begin_src emacs-lisp
+(global-hl-line-mode t)
+#+end_src
+
 * Ido and Smex
 Helm looks super useful, but I've got enough on my plate just trying to get Emacs itself to stick in my mind.
 
