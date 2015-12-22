@@ -279,7 +279,7 @@ which-key is a minor mode for Emacs that displays the key bindings following you
     (which-key-mode)))
 #+END_SRC
 * Better Buffer Selection
-
+  
 ** IBuffer
 IBuffer is a built-in replacement for the stanard buffer selection buffer
 
@@ -346,6 +346,6 @@ Python
 #+begin_src emacs-lisp
 (use-package elpy
   :ensure t
-  :init (elpy-enable)
-  :config ((setq elpy-rpc-backend "jedi")))
+  :init 
+    '(elpy-enable (setq elpy-rpc-backend "jedi")))
 #+end_src
