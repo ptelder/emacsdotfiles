@@ -346,5 +346,6 @@ Python
 #+begin_src emacs-lisp
 (use-package elpy
   :ensure t
-  :init (elpy-enable))
+  :init (elpy-enable)
+  :config ((setq elpy-rpc-backend "jedi")))
 #+end_src
