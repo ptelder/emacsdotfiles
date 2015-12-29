@@ -40,11 +40,6 @@ Stolen from [[https://github.com/magnars/.emacs.d/blob/master/settings/sane-defa
 Set up SQL*Plus (Oracle) mode for emacs on $WORKPLACE workstations
 [[http://www.emacswiki.org/emacs/SqlPlus]]
 
-#+begin_src emacs-lisp
-(use-package sqlplus
-  :ensure t)
-#+end_src
-
 Unfortunately, sqlplus.el has a nasty tendency to faceplant and dump it's buffers. This snippet from [[http://stackoverflow.com/questions/1486321/emacs-sqlplus-disconnected][Stack Exchange]] seems to do the trick to prevent it.
 
 #+begin_src emacs-lisp
@@ -53,16 +48,20 @@ Unfortunately, sqlplus.el has a nasty tendency to faceplant and dump it's buffer
   "hostname of this machine")
 
 (when (string-match "PC25" hostname)
-  (defun sqlplus-verify-buffer (connect-string)
-  (let ((output-buffer-name (sqlplus-get-output-buffer-name connect-string))
-    (process-buffer-name (sqlplus-get-process-buffer-name connect-string)))
-    (when (not (get-buffer process-buffer-name))
-      (sqlplus-shutdown connect-string)
-      (error "No SQL*Plus session!  Use 'M-x sqlplus' to start the SQL*Plus interpreter"))
-    (unless (get-buffer-process process-buffer-name)
-      (sqlplus-shutdown connect-string)
-      (error "Buffer '%s' is not talking to anybody!" output-buffer-name)))
-  t))
+  (use-package sqlplus
+    :ensure t
+    :config (progn
+      
+      (defun sqlplus-verify-buffer (connect-string)
+      (let ((output-buffer-name (sqlplus-get-output-buffer-name connect-string))
+        (process-buffer-name (sqlplus-get-process-buffer-name connect-string)))
+        (when (not (get-buffer process-buffer-name))
+          (sqlplus-shutdown connect-string)
+          (error "No SQL*Plus session!  Use 'M-x sqlplus' to start the SQL*Plus interpreter"))
+        (unless (get-buffer-process process-buffer-name)
+          (sqlplus-shutdown connect-string)
+          (error "Buffer '%s' is not talking to anybody!" output-buffer-name)))
+      t))))
 #+end_src
 * Keybinds via bind-key
 Use bind-key for... binding keys
@@ -167,7 +166,7 @@ That didn't take long. Looks like Smart Mode Line is not Going to play nice with
 #+begin_src emacs-lisp
 (global-hl-line-mode t)
 #+end_src
-
+   
 * Ido and Smex
 Helm looks super useful, but I've got enough on my plate just trying to get Emacs itself to stick in my mind.
 
