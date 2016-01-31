@@ -360,6 +360,12 @@ Projectile is also recommended, but I'm not sure I have my head wrapped 'round i
 #+begin_src emacs-lisp
 (use-package paredit
   :ensure t
+  :config
+    (add-hook 'minibuffer-setup-hook 'conditionally-enable-paredit-mode)
+    (defun conditionally-enable-paredit-mode ()
+      "enable paredit-mode during eval-expression"
+      (if (eq this-command 'eval-expression)
+          (paredit-mode 1)))
 )
 #+end_src
 
