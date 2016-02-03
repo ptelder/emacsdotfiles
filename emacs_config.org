@@ -416,6 +416,16 @@ And then Cider. Eldoc mode is supposed to add docs for functions in the minibuff
     (setq cider-auto-select-error-buffer t)
     (setq cider-repl-history-file "~/.emacs.d/cider-history")
     (setq cider-repl-wrap-history t)
+    (add-hook 'cider-mode-hook
+      '(lambda () (add-hook 'after-save-hook
+        '(lambda ()
+          (if (and (boundp 'cider-mode) cider-mode)
+            (cider-namespace-refresh))))))
+    (defun cider-namespace-refresh ()
+      (interactive)
+        (cider-interactive-eval
+          "(require 'clojure.tools.namespace.repl)
+          (clojure.tools.namespace.repl/refresh)"))
 )
 #+end_src
 
