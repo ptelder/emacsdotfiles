@@ -377,6 +377,7 @@ Clojure mode with extra hooks from the book. Embedded the extra font locking pac
   :config
     (add-hook 'clojure-mode-hook 'enable-paredit-mode)
     (add-hook 'clojure-mode-hook 'subword-mode)
+    (add-hook 'clojure-mode-hook 'highlight-parentheses-mode)
     (use-package clojure-mode-extra-font-locking
       :ensure t
     )
