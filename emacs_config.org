@@ -322,8 +322,8 @@ Aspell needs a command line adjustment for flyspell
 (setq ispell-list-command "--list")
 (add-hook 'org-mode-hook 'turn-on-flyspell)
 #+END_SRC
-* Coding
-Company Mode
+ * Coding
+** Company Mode
 [[https://company-mode.github.io/]]
 
 #+begin_src emacs-lisp
@@ -331,7 +331,7 @@ Company Mode
   :ensure t)
 #+end_src
 
-Elixir!
+** Elixir!
 [[http://www.alchemist-elixir.org/]]
 
 #+begin_src emacs-lisp
@@ -339,7 +339,7 @@ Elixir!
   :ensure t)
 #+end_src
 
-Python
+** Python
 [[https://github.com/jorgenschaefer/elpy]]
 
 #+begin_src emacs-lisp
@@ -349,7 +349,7 @@ Python
     '(elpy-enable (setq elpy-rpc-backend "jedi")))
 #+end_src
 
-Clojure
+** Clojure
 
 Pulling defaults from [[https://www.nostarch.com/clojure/][Clojure for the Brave and True]]...
 
