@@ -63,6 +63,16 @@ Unfortunately, sqlplus.el has a nasty tendency to faceplant and dump it's buffer
           (error "Buffer '%s' is not talking to anybody!" output-buffer-name)))
       t))))
 #+end_src
+* Backups and Auto Saves
+Redirect auto-saves and backups to /tmp to reduce clutter and accidental coping of large text files over networks.
+
+#+begin_src emacs-lisp
+(setq backup-directory-alist
+  `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+  `((".*" ,temporary-file-directory t)))
+#+end_src
+
 * Keybinds via bind-key
 Use bind-key for... binding keys
 +[[https://github.com/emacsattic/bind-key]]
