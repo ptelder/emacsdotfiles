@@ -440,6 +440,35 @@ And then Cider. Eldoc mode is supposed to add docs for functions in the minibuff
 )
 #+end_src
 
+* Org
+Bypass Confirmation for running blocks....
+#+BEGIN_SRC emacs-lisp
+    (setq org-confirm-babel-evaluate nil 
+          org-src-fontify-natively t 
+          org-src-tab-acts-natively t)
+
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+      '((sh . t)
+        (emacs-lisp . t)
+        (clojure . t)
+        (python . t)
+        (ruby . t)))
+#+END_SRC
+
+Need Inf-Ruby for sessions in Org
+#+BEGIN_SRC emacs-lisp
+  (use-package inf-ruby
+    :ensure t)
+#+END_SRC
+
+Pretty HTML exports
+#+BEGIN_SRC emacs-lisp
+  (use-package htmlize
+    :ensure t)
+#+END_SRC
+
+#+RESULTS:
 
 * Notes
 Add VLF!
