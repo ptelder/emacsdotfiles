@@ -4,6 +4,7 @@
 * First stab at a synced org-mode setup
 
 *Now testing under 25.1.50.1!*
+_Use Flags: app-editors/emacs-vcs		games sound xft gfile gtk gtk3 gif jpeg png inotify sound ssl svg tiff xft xpm xwidgets zlib libxml2 imagemagick -cairo_
 
 I first touched Emacs sometime in the mid-90's and bounded right off the weirdness of it's interface.
 
