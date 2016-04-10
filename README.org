@@ -3,6 +3,8 @@
 
 * First stab at a synced org-mode setup
 
+*Now testing under 25.1.50.1!*
+
 I first touched Emacs sometime in the mid-90's and bounded right off the weirdness of it's interface.
 
 More recently I got into the idea of doing [[http://nanowrimo.org/][NaNoWriMo]], and found myself in need of an industrial strength text-processing solution. I'd tried Emacs again to get in on some of that org-mode goodness, but hadn't stuck with it.
