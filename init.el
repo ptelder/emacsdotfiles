@@ -1,5 +1,12 @@
 ;; Org-Mode .emacs setup
 
+;; Force UTF-8 before anything use to prevent issues bootstrapping Melpa/Package.el
+(setq locale-coding-system 'utf-8) ; pretty
+(set-terminal-coding-system 'utf-8) ; pretty
+(set-keyboard-coding-system 'utf-8) ; pretty
+(set-selection-coding-system 'utf-8) ; please
+(prefer-coding-system 'utf-8) ; with sugar on top
+
 ;; Turn off mouse interface early in startup to avoid momentary display
 (when window-system
   (menu-bar-mode -1)
