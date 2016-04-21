@@ -12,6 +12,10 @@ I have no idea where this gets used, but the Emacs docs say they're legit... Per
       user-mail-address "pliny@ptelder.net")
 #+end_src
 
+* Defaults
+** Use-package
+Always ensure!
+(setq use-package-always-ensure t)
 * Customize settings
 
 Set up the customize system to use its own separate file, instead of saving
