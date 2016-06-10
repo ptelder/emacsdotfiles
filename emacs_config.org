@@ -431,20 +431,18 @@ And then Cider. Eldoc mode is supposed to add docs for functions in the minibuff
 )
 #+end_src
 
-** Common Lisp
+** TODO Common Lisp
 Snippet for getting SLIME up and ready to go from 
 [[https://github.com/slime/slime/issues/258]]
 
+For some reason, coverting this to use-package failed on the first try.
+I'll need to revists it when I'm not on my lunch hour.
+
 #+begin_src emacs-lisp
 
-(use-package slime
-  :ensure t
-  :init 
-    (require 'slime-autoloads)
-  :config
-    (setq inferior-lisp-program "sbcl" ; Steel Bank Common Lisp
-      slime-contribs '(slime-fancy))
-)
+(require 'slime-autoloads)
+(setq inferior-lisp-program "sbcl" ; Steel Bank Common Lisp
+  slime-contribs '(slime-fancy))
 
 #+end_src
 
