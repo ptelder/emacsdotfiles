@@ -436,12 +436,12 @@ Snippet for getting SLIME up and ready to go from
 [[https://github.com/slime/slime/issues/258]]
 
 For some reason, coverting this to use-package failed on the first try.
-I'll need to revists it when I'm not on my lunch hour.
+I'll need to revist it when I'm not on my lunch hour.
 
 #+begin_src emacs-lisp
 
 (require 'slime-autoloads)
-(setq inferior-lisp-program "sbcl" ; Steel Bank Common Lisp
+(setq inferior-lisp-program "sbcl"
   slime-contribs '(slime-fancy))
 
 #+end_src
