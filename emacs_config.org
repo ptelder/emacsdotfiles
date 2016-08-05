@@ -440,10 +440,22 @@ I'll need to revist it when I'm not on my lunch hour.
 
 #+begin_src emacs-lisp
 
-(require 'slime-autoloads)
-(setq inferior-lisp-program "sbcl"
-  slime-contribs '(slime-fancy))
+(unless (string-match "PC25" hostname)
+  (use-package slime
+    :ensure t
+    :config 
+      (slime-setup '(slime-fancy slime-banner slime-autodoc))
+      (setq slime-complete-symbol*-fancy t
+            slime-complete-symbol-function 'slime-fuzzy-complete-symbol
+            inferior-lisp-program "sbcl" ; Steel Bank Common Lisp
+      )
+  )
+)
+    
 
+;;      (require 'slime-autoloads)
+;;      (setq inferior-lisp-program "sbcl" ; Steel Bank Common Lisp
+;;        slime-contribs '(slime-fancy))
 #+end_src
 
 * Org
