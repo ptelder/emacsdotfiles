@@ -131,11 +131,11 @@ That didn't take long. Looks like Smart Mode Line is not Going to play nice with
 *** Birds of Paradise
 
 #+begin_src emacs-lisp
-(use-package birds-of-paradise-plus-theme
+(use-package base16-theme
   :ensure t
   :init
   (progn
-    (load-theme 'birds-of-paradise-plus t)))
+    (load-theme 'base16-eighties-dark t)))
 #+end_src
 
 ** Daniel Mai's theme switch functions
