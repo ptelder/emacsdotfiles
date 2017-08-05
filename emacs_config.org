@@ -135,7 +135,7 @@ That didn't take long. Looks like Smart Mode Line is not Going to play nice with
   :ensure t
   :init
   (progn
-    (load-theme 'base16-eighties-dark t)))
+    (load-theme 'base16-eighties t)))
 #+end_src
 
 ** Daniel Mai's theme switch functions
@@ -182,9 +182,6 @@ Interactively Do Things
     (setq ido-enable-flex-matching t)
     (setq ido-everywhere t)
     (ido-mode t)
-    (use-package ido-ubiquitous
-      :ensure t
-      :init (ido-ubiquitous-mode))
     (use-package ido-vertical-mode
       :ensure t
       :init (ido-vertical-mode 1)
