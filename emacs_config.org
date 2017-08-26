@@ -54,6 +54,22 @@ Unfortunately, sqlplus.el has a nasty tendency to faceplant and dump it's buffer
           (error "Buffer '%s' is not talking to anybody!" output-buffer-name)))
       t))))
 #+end_src
+
+NixOS Helpers
+
+#+begin_src emacs-lisp
+(use-package nix-mode
+  :ensure t
+)
+(use-package nixos-options
+  :ensure t
+)
+(use-package company-nixos-options
+  :ensure t
+  :config (add-to-list 'company-backends 'company-nixos-options)
+)
+#+end_src
+
 * Backups and Auto Saves
 Redirect auto-saves and backups to /tmp to reduce clutter and accidental coping of large text files over networks.
 
@@ -229,9 +245,7 @@ Well, maybe one more piece of explanation. Nyan Prompt adds a Nyan to the eshell
 
 (use-package nyan-prompt
   :ensure t
-  :init
-  (progn
-    (add-hook 'eshell-load-hook 'nyan-prompt-enable)))
+)
 #+end_src
 
 * Magit
