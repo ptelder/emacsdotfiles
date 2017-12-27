@@ -234,6 +234,8 @@ Well, maybe one more piece of explanation. Nyan Prompt adds a Nyan to the eshell
 2. Term is an actual terminal emulator, runs whatever you want inside Emacs.
 3. Eshell is an actual EmacsLisp shell.
 
+Actually, nyan-prompt has disappeared from Melpa...
+
 #+begin_src emacs-lisp
 (use-package nyan-mode
   :ensure t
@@ -243,9 +245,9 @@ Well, maybe one more piece of explanation. Nyan Prompt adds a Nyan to the eshell
     (setq nyan-wavy-tail t)
     (nyan-mode t)))
 
-(use-package nyan-prompt
-  :ensure t
-)
+;;(use-package nyan-prompt
+;;  :ensure t
+;;)
 #+end_src
 
 * Magit
