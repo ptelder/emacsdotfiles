@@ -353,6 +353,12 @@ Aspell needs a command line adjustment for flyspell
   :ensure t)
 #+end_src
 
+** Haskel - For Xmonad if nothing else...
+
+#+begin_src emacs-lisp
+(use-package haskell-mode
+  :ensure t)
+#+end_src
 ** Python
 [[https://github.com/jorgenschaefer/elpy]]
 
